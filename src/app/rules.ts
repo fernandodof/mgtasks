@@ -6,9 +6,12 @@ import {
     ListingTableComponent
 } from 'angularm';
 
+import {LimittedFormLineComponent} from './widgets/limitted.form.line';
+
 export let defineRules = (angularm: AngularmService) => {
     angularm
         .dptr('form_line', FormLineComponent, { inputType: 'text' })
+        .ptr('form_line','*', '*', 'integer', LimittedFormLineComponent, { inputType: 'number', min:0, max:500 })
         .dpr('show_line', ShowLineComponent)
         .detr('list_entities', ListingTableComponent)
         .der('table_line', EntityLineComponent)
